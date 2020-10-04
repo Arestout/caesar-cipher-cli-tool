@@ -13,6 +13,8 @@ const {
   validateOutput,
 } = require('./utils/validate');
 
+const { encode, decode } = require('./utils/cipher.js');
+
 program
   .storeOptionsAsProperties(false)
   .version('1.0.0')
@@ -51,11 +53,11 @@ const action = validateAction(programOptions.action);
       let result = '';
 
       if (action === 'encode') {
-       // result = encode(text, shift);
+        result = encode(text, shift);
       }
 
       if (action === 'decode') {
-       // result = decode(text, shift);
+        result = decode(text, shift);
       }
 
       this.push(`${result}\n`);
@@ -73,7 +75,9 @@ const action = validateAction(programOptions.action);
       transformStream,
       writeStream || process.stdout
     );
+    process.stdout.write('Success' + '\n');
+    process.exit(0);
   } catch (error) {
-    process.stderr.write(error.message + '\n');
+    process.stderr.write('Something went wrong, please try again' + '\n');
   }
 })();
