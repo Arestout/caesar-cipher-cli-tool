@@ -36,8 +36,9 @@ function validateAction(action) {
 function validateInput(optionsInput) {
   return new Promise((resolve, reject) => {
     if (!optionsInput) resolve(false);
-    const input = path.join(__dirname, '..', optionsInput);
-    console.log(input);
+
+    const input = path.resolve(__dirname, '..', optionsInput);
+
     fs.access(input, fs.constants.F_OK | fs.constants.R_OK, (error) => {
       if (error) {
         process.stderr.write(
@@ -54,7 +55,8 @@ function validateInput(optionsInput) {
 function validateOutput(optionsOutput) {
   return new Promise((resolve, reject) => {
     if (!optionsOutput) resolve(false);
-    const output = path.join(__dirname, '..', optionsOutput);
+
+    const output = path.resolve(__dirname, '..', optionsOutput);
 
     fs.access(output, fs.constants.F_OK | fs.constants.W_OK, (error) => {
       if (error) {

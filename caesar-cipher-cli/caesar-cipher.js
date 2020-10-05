@@ -30,11 +30,11 @@ program
 const programOptions = program.opts();
 
 const inputData = programOptions.input
-  ? path.join(__dirname, programOptions.input)
+  ? path.resolve(__dirname, programOptions.input)
   : null;
 
 const outputData = programOptions.output
-  ? path.join(__dirname, programOptions.output)
+  ? path.resolve(__dirname, programOptions.output)
   : null;
 
 const shift = validateShift(programOptions.shift);
