@@ -35,13 +35,11 @@ node caesar-cipher -a encode -s 7 -i "C:/folder/input.txt" -o "C:/folder/output.
 3. --input
 
 - optional
-- here you can specify the name of the input file
-- the file should be in the same directory as the caesar-cipher script
+- here you can specify the name and location of the input file
 - if not specified, the tool will ask you to write your input in the console
 
 4. --output
 
 - optional
-- here you can specify the name of the output file
-- the file should be in the same directory as the caesar-cipher script
+- here you can specify the name and location of the output file
 - if not specified, the tool will print your output in the console
